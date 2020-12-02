@@ -34,10 +34,36 @@ _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
  10. Lead actors in 1962 movies.
  List the films together with the leading star for all 1962 films. 
  
- select title, name 
- from movie join casting on movie.id=movieid join actor on actor.id=actorid
- where yr='1962' and ord=1
+ SELECT title, name FROM
+ movie JOIN casting ON movie.id=movieid 
+       JOIN actor ON actor.id=actorid
+ WHERE yr='1962' AND ord=1
  
  
  _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
  
+ 11. Busy years for Rock Hudson
+ 
+ Which were the busiest years for 'Rock Hudson', show the year 
+ and the number of movies he made each year for any year in which he made more than 2 movies. 
+ 
+ SELECT yr,COUNT(title) FROM
+ movie JOIN casting ON movie.id=movieid
+       JOIN actor   ON actorid=actor.id
+ WHERE name='Rock Hudson'
+ GROUP BY yr
+ HAVING COUNT(title) > 2
+ 
+ 
+ _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
+ 
+ 12. Lead actor in Julie Andrews movies
+ List the film title and the leading actor for all of the films 'Julie Andrews' played in.
+ 
+ SELECT title,name FROM
+ movie JOIN casting ON movie.id=movieid
+      JOIN actor   ON actorid=actor.id
+ WHERE ord=1 AND movieid IN (
+ SELECT movieid FROM actor 
+ JOIN casting ON actor.id=actorid
+ WHERE name='Julie Andrews')
