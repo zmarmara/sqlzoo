@@ -30,6 +30,7 @@ _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
                '--'---'--`
                
  _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
+ 
  10. Lead actors in 1962 movies.
  List the films together with the leading star for all 1962 films. 
  
