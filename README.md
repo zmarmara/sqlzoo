@@ -67,3 +67,15 @@ _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
  SELECT movieid FROM actor 
  JOIN casting ON actor.id=actorid
  WHERE name='Julie Andrews')
+ 
+  _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
+ 
+ 13. Actors with 15 leading roles
+ Obtain a list, in alphabetical order, of actors who've had at least 15 starring roles.
+ 
+ SELECT name FROM
+ movie JOIN casting ON movie.id=movieid
+      JOIN actor   ON actorid=actor.id
+ WHERE ord=1
+ GROUP BY name
+ HAVING count(title)>=15
