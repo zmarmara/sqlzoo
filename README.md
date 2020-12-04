@@ -73,9 +73,11 @@ _,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,__,.-'~'-.,_
  13. Actors with 15 leading roles
  Obtain a list, in alphabetical order, of actors who've had at least 15 starring roles.
  
- SELECT name FROM
- movie JOIN casting ON movie.id=movieid
-      JOIN actor   ON actorid=actor.id
- WHERE ord=1
+
+ SELECT name FROM 
+ movie JOIN casting ON movie.id=movieid 
+       JOIN actor ON actorid=actor.id
+ where ord=1
  GROUP BY name
- HAVING count(title)>=15
+ HAVING COUNT(movieid)>=15
+ ORDER BY name ASC
